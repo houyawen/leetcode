@@ -19,27 +19,25 @@ import "fmt"
 
 func main() {
 	//test
-	var test_arr = []int{11, 15, 2, 1, 7, 3, 4, 18}
+	var test_arr = []int{11, 15, 2, 1, 3, 7, 4, 18}
 	target := 9
 
-	first_key, second_key := twoNum(test_arr, target)
-
-	return_data := [2]int{first_key, second_key}
+	return_data := twoSum(test_arr, target)
 
 	fmt.Printf("%v", return_data)
 }
 
-func twoNum(arr []int, target int) (int, int) {
-	for k1, v1 := range arr {
-		for k2, v2 := range arr {
+func twoSum(nums []int, target int) []int {
+	for k1, v1 := range nums {
+		for k2, v2 := range nums {
 			if k1 != k2 {
 				var tmp = v1 + v2
 				if tmp == target {
-					return k1, k2
+					return []int{k1, k2}
 				}
 			}
 		}
 	}
 
-	return 0,0
+	return []int{0, 0}
 }
