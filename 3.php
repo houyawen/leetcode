@@ -1,5 +1,6 @@
 <?php
 /*
+https://leetcode-cn.com/problems/longest-substring-without-repeating-characters/description/
 给定一个字符串，找出不含有重复字符的最长子串的长度。
 
 示例：
