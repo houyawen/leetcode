@@ -22,7 +22,7 @@ function lengthOfLongestSubstring($str)
 
 	$maxLen = 1;
 	for ($i = 0; $i < $strLen; $i++) {
-		for ($j = $i + 1; $j < $strLen + 1; $j++) { 
+		for ($j = $i + 1; $j < $strLen + 1; $j++) {
 			$tmpStr = substr($str, $i, $j);
 			$tmpStrArr = preg_split('//', $tmpStr, -1, PREG_SPLIT_NO_EMPTY);
 			$tmpStrArrUnique = array_unique($tmpStrArr);
