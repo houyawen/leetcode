@@ -1,0 +1,51 @@
+<script>
+/*
+https://leetcode-cn.com/problems/longest-common-prefix/description/
+*/
+function longestCommonPrefix (strs) {
+	if (strs.length == 0) {
+		return ''
+	}
+
+	if (strs.length == 1) {
+		return strs[0]
+	}
+
+	var minLen = strs[0].length
+
+	for (var i = 0; i < strs.length; i++) {
+		if (strs[i].length < minLen) {
+			minLen = strs[i].length
+		}
+	}
+
+	var strArray = [];
+	for (var i = 0; i < strs.length; i++) {
+		strArray.push(strs[i].split(''))
+	}
+
+	var longestCommonPrefix = '';
+	for (var i = 0; i < minLen; i++) {
+		var flag = true
+		var firstData = strArray[0][i]
+		for (var j = 0; j < strArray.length; j++) {
+			if (strArray[j][i] != firstData) {
+				flag = false
+			}
+		}
+
+		if (flag) {
+			longestCommonPrefix += firstData
+		} else {
+			break
+		}
+	}
+
+	return longestCommonPrefix
+}
+
+var str = ["flower","flow","flight"]
+// var str = ['aaa']
+var res = longestCommonPrefix(str)
+console.log(res)
+</script>
