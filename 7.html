@@ -1,0 +1,35 @@
+<script>
+//https://leetcode-cn.com/problems/reverse-integer/description/
+function fanZhuan (x) {
+	if (x < 0) {
+		var res = arguments.callee(-x)
+		return -res
+	};
+
+	if (x.length < 10) {
+		return x
+	}
+
+	var remain = x
+	var res = 0
+
+	while(remain >= 10){
+		var rema = remain % 10;
+		remain = (remain - rema) / 10
+		res = res * 10 + rema;
+	}
+
+	res = res * 10 + remain
+
+    if (res > 2147483647) {
+        return 0
+    }
+
+	return res
+}
+
+//test
+var a = -300241568997
+var b = fanZhuan(a)
+console.log(b)
+</script>
