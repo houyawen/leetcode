@@ -1,0 +1,26 @@
+<script>
+/*
+https://leetcode-cn.com/problems/valid-parentheses/description/
+*/
+function isValid (s) {
+	var str = s.split('')
+	var tmp = []
+	for (var i = 0; i < str.length; i++) {
+		if (str[i] == '(') {
+			tmp.push(')')
+		} else if (str[i] == '{') {
+			tmp.push('}')
+		} else if (str[i] == '[') {
+			tmp.push(']')
+		} else if (tmp.pop() != str[i]) {
+			return false
+		}
+	}
+
+	return !tmp.length
+}
+
+//test
+var str = "{[()]}"
+console.log(isValid(str))
+</script>
