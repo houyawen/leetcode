@@ -3,6 +3,11 @@
 
 function fanZhuan($num)
 {
+	if ($num < 0) {
+		$res = fanZhuan(-$num);
+		return -$res;
+	}
+
 	if ($num < 10) {
 		return $num;
 	}
@@ -18,7 +23,7 @@ function fanZhuan($num)
 	return $res * 10 + $remain;
 }
 
-$a = 300241568997;
+$a = -300241568997;
 echo fanZhuan($a);
 
 ?>
