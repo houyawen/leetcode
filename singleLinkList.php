@@ -3,6 +3,8 @@
 单链表
 */
 
+include './singleLinkListInterface.php';
+
 class Node
 {
     public $data = '';
@@ -15,10 +17,7 @@ class Node
     }
 }
 
-/**
-* 
-*/
-class SingleLinkList
+class SingleLinkList implements singleLinkListInterface
 {
     public $header = null;
 
@@ -57,7 +56,7 @@ class SingleLinkList
             echo $currentNode->data . '->';
             $currentNode = $currentNode->next;
         }
-        echo $currentNode->data;
+        echo $currentNode->data . "\n";
     }
 
     public function addNodeAfterLocation($node, $location)
@@ -99,16 +98,4 @@ class SingleLinkList
         }
     }
 }
-
-//test
-$singleLinkList = new SingleLinkList('1');
-$singleLinkList->addNode(new Node('2'));
-$singleLinkList->addNode(new Node('3'));
-$singleLinkList->addNode(new Node('4'));
-$singleLinkList->addNode(new Node('5'));
-$singleLinkList->addNode(new Node('6'));
-// $singleLinkList->addNodeAfterLocation(new Node('testInsert'), 4);
-// $singleLinkList->deleteLocation(2);
-
-$singleLinkList->showLinks();
 ?>
