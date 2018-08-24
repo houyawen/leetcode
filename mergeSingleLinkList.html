@@ -1,0 +1,35 @@
+<script>
+var list1 = new SingleLinkList();
+list1.append('1');
+list1.append('3');
+list1.append('4');
+list1.append('5');
+list1.append('6');
+list1.append('7');
+var list2 = new SingleLinkList();
+list2.append('2');
+list2.append('5');
+list2.append('9');
+list2.append('11');
+list2.append('17');
+
+// list2.appendByLocation(7, '444')
+// list.showList();
+function mergeList (list1, list2) {
+	var header1 = list1.header;
+	var header2 = list2.header;
+
+	var res = header1.data < header2.data ? header1 : header2;
+
+	while(header1 && header2){
+		if (header1.data < header2.data) {
+			res.next = header1;
+			header1 = header1.next;
+			res = res.next
+		}
+	}
+}
+
+var mergeList = mergeList(list1, list2)
+mergeList.showList();
+</script>
