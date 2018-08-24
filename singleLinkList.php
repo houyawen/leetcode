@@ -77,6 +77,10 @@ class SingleLinkList implements singleLinkListInterface
             $currentNode = $currentNode->next;
             $i++;
         }
+
+        if (is_null($currentNode->next)) {
+            $currentNode->next = $node;
+        }
     }
 
     public function deleteLocation($location)
