@@ -78,8 +78,25 @@ class SingleLinkList
             $currentNode = $currentNode->next;
             $i++;
         }
+    }
 
-        return $this;
+    public function deleteLocation($location)
+    {
+        if ($location > $this->getLinkLength()) {
+            throw new Exception("删除的位置不对", 2);
+        }
+
+        $currentNode  = $this->header;
+        $i = 1;
+        while (!is_null($currentNode->next)) {
+            if ($i == $location) {
+                $currentNode->next = $currentNode->next->next;
+                break;
+            }
+
+            $currentNode = $currentNode->next;
+            $i++;
+        }
     }
 }
 
@@ -90,7 +107,8 @@ $singleLinkList->addNode(new Node('3'));
 $singleLinkList->addNode(new Node('4'));
 $singleLinkList->addNode(new Node('5'));
 $singleLinkList->addNode(new Node('6'));
-$singleLinkList->addNodeAfterLocation(new Node('testInsert'), 4);
+// $singleLinkList->addNodeAfterLocation(new Node('testInsert'), 4);
+// $singleLinkList->deleteLocation(2);
 
 $singleLinkList->showLinks();
 ?>
