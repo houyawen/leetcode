@@ -14,6 +14,10 @@ function searchInsert($nums, $target) {
 		return $end;
 	}
 
+	if ($target < $nums[$start]) {
+		return $start;
+	}
+
 	if ($target > $nums[$end]) {
 		return $end + 1;
 	}
