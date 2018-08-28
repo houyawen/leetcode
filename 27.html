@@ -1,0 +1,21 @@
+<script>
+/*
+https://leetcode-cn.com/problems/remove-element/solution/
+移除数组中重复的项
+*/
+
+function removeElement(nums, val){
+
+  //遍历数组
+  for (var i = 0; i < nums.length; i++) {
+    //找出值等于 val 的元素
+    if (nums[i] == val) {
+      //删除之并向前移位
+      nums.splice(i,1);
+      i--;
+    }
+  }
+  //返回修改后数组的长度
+
+}
+</script>
