@@ -14,21 +14,28 @@ function intersection(nums1, nums2){
 		var longNums = nums2
 		var shortNums = nums1
 	}
+	var nums1Bak = nums1.slice(0)
     shortNums.sort(sortNumber)
 	longNums.sort(sortNumber)
-	var res = []
+	var indexArr = []
 
 	while(shortNums.length > 0 && longNums.length > 0){
 		if (shortNums[shortNums.length - 1] == longNums[longNums.length - 1]) {
-			if (res.indexOf(shortNums[shortNums.length - 1])) {
-				res.push(shortNums[shortNums.length - 1])
-			}
+			indexArr.push(nums1Bak.indexOf(shortNums[shortNums.length - 1]))
 			shortNums.pop()
 			longNums.pop()
 		} else if (shortNums[shortNums.length - 1] > longNums[longNums.length - 1]) {
 			shortNums.pop()
 		} else if (shortNums[shortNums.length - 1] < longNums[longNums.length - 1]) {
 			longNums.pop()
+		}
+	}
+	var res = []
+	indexArr.sort(sortNumber)
+
+	for (var i = 0; i < indexArr.length; i++) {
+		if (res.indexOf(nums1Bak[indexArr[i]]) == -1) {
+			res.push(nums1Bak[indexArr[i]])
 		}
 	}
 	return res
