@@ -1,0 +1,26 @@
+<script>
+/*
+https://leetcode-cn.com/problems/two-sum-ii-input-array-is-sorted/description/
+*/
+function twoSum (numbers, target) {
+	var start = 0
+	var end = numbers.length - 1
+	while((end - start) >= 1){
+		var data = numbers[start] + numbers[end]
+		if (data == target) {
+			return [start + 1, end + 1]
+		}
+		if (data > target) {
+			end--
+		}
+		if (data < target) {
+			start++
+		}
+	}
+	if (numbers[start] == target) {
+		return start + 1
+	}
+
+	return -1
+}
+</script>
