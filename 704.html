@@ -1,0 +1,41 @@
+<script>
+/*
+https://leetcode-cn.com/problems/binary-search/description/
+二分查找
+*/
+function search(nums, target){
+	if (nums.length == 0) {
+		return -1
+	}
+
+	var start = 0
+	var end = nums.length - 1
+	while((end - start) > 1){
+		mid = start + Math.floor((end - start) / 2)
+		if (nums[mid] == target) {
+			return mid
+		}
+		if (nums[mid] > target) {
+			end = mid
+		}
+		if (nums[mid] < target) {
+			start = mid
+		}
+	}
+
+	if (nums[end] == target) {
+		return end
+	}
+
+	if (nums[start] == target) {
+		return start
+	}
+
+	return -1
+}
+
+//test
+var nums = [-1,0,3,5,9,12]
+var target = 9
+console.log(search(nums, target))
+</script>
