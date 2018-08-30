@@ -1,0 +1,32 @@
+<script>
+/*
+https://leetcode-cn.com/problems/valid-perfect-square/description/
+给定一个数字，判断是否是完全平方数
+*/
+function isPerfectSquare(num){
+	if (num <= 0) {
+		return false
+	}
+
+	var start = 1
+	var end = num
+	while((end - start) > 1){
+		var mid = start + Math.floor((end - start) / 2)
+		if (Math.pow(mid, 2) == num) {
+			return true
+		}
+		if (Math.pow(mid, 2) > num) {
+			end = mid
+		}
+		if (Math.pow(mid, 2) < num) {
+			start = mid
+		}
+	}
+
+	if (Math.pow(start, 2) == num || Math.pow(end, 2) == num) {
+		return true
+	}
+
+	return false
+}
+</script>
